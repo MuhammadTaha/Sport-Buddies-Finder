@@ -1,0 +1,47 @@
+{
+  "name": "GamePlayer",
+  "plural": "game_players",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "game_details_id": {
+      "type": "number",
+      "required": true
+    },
+    "player_id": {
+      "type": "number",
+      "required": true
+    },
+    "game_starttime": {
+      "type": "string",
+      "required": true
+    },
+    "game_endtime": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rel_game_details": {
+      "type": "hasOne",
+      "model": "GameDetails",
+      "foreignKey": "game_details_id"
+    },
+    "rel_player": {
+      "type": "hasAndBelongsToMany",
+      "model": "Player",
+      "foreignKey": "player_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

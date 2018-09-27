@@ -1,0 +1,59 @@
+{
+  "name": "GameDetails",
+  "plural": "game_details",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "player_id": {
+      "type": "number",
+      "required": true
+    },
+    "sport_id": {
+      "type": "number",
+      "required": true
+    },
+    "playtime_from": {
+      "type": "string",
+      "required": true
+    },
+    "playtime_end": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "required": true
+    },
+    "players_count": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rel_players": {
+      "type": "hasOne",
+      "model": "Player",
+      "foreignKey": "player_id"
+    },
+    "rel_sports": {
+      "type": "hasOne",
+      "model": "Sport",
+      "foreignKey": "sport_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
